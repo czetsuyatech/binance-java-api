@@ -1,0 +1,23 @@
+name: Continuous Delivery
+
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        type: environment
+        required: true
+
+jobs:
+  cd:
+    uses: czetsuyatech/actions/.github/workflows/cd.yml@main
+    with:
+      javaVersion: '17'
+    secrets:
+      githubAppId: ${{ secrets.CT_RELEASE_APP_ID }}
+      githubAppPrivateKey: ${{ secrets.CT_RELEASE_APP_PRIVATE_KEY }}
+      githubToken: ${{ secrets.GH_PKG_TOKEN }}

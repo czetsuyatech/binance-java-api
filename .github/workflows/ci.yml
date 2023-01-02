@@ -1,0 +1,16 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+
+jobs:
+  ci:
+    uses: czetsuyatech/actions/.github/workflows/ci.yml@main
+    with:
+      javaVersion: '17'
+    secrets:
+      githubToken: ${{ secrets.GH_PKG_TOKEN }}
