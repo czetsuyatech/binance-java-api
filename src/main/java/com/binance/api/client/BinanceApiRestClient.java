@@ -105,6 +105,9 @@ public interface BinanceApiRestClient {
    */
   List<Candlestick> getCandlestickBars(String symbol, CandlestickInterval interval, Integer limit, Long startTime, Long endTime);
 
+  List<Candlestick> getCandlestickHistoryBars(String symbol, CandlestickInterval interval, Integer limit,
+      Long startTime, Long endTime);
+
   /**
    * Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
    *

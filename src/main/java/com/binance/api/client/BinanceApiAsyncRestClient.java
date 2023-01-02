@@ -122,6 +122,9 @@ public interface BinanceApiAsyncRestClient {
    */
   void getCandlestickBars(String symbol, CandlestickInterval interval, Integer limit, Long startTime, Long endTime, BinanceApiCallback<List<Candlestick>> callback);
 
+  void getCandlestickHistoryBars(String symbol, CandlestickInterval interval, Integer limit, Long startTime,
+      Long endTime, BinanceApiCallback<List<Candlestick>> callback);
+
   /**
    * Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
    *

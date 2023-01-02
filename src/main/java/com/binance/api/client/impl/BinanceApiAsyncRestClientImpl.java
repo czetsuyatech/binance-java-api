@@ -102,6 +102,12 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   }
 
   @Override
+  public void getCandlestickHistoryBars(String symbol, CandlestickInterval interval, Integer limit, Long startTime,
+      Long endTime, BinanceApiCallback<List<Candlestick>> callback) {
+    binanceApiService.getCandlestickBars(symbol, interval.getIntervalId(), limit, startTime, endTime).enqueue(new BinanceApiCallbackAdapter<>(callback));
+  }
+
+  @Override
   public void getCandlestickBars(String symbol, CandlestickInterval interval, BinanceApiCallback<List<Candlestick>> callback) {
     getCandlestickBars(symbol, interval, null, null, null, callback);
   }
