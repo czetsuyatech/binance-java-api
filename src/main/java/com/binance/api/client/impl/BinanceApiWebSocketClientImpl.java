@@ -99,7 +99,7 @@ public class BinanceApiWebSocketClientImpl implements BinanceApiWebSocketClient,
         return () -> {
             final int code = 1000;
             listener.onClosing(webSocket, code, "CREATE_NEW_SESSION");
-            webSocket.close(code, null);
+            webSocket.close(code, "CREATE_NEW_SESSION");
             listener.onClosed(webSocket, code, "CREATE_NEW_SESSION");
         };
     }
